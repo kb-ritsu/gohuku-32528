@@ -1,24 +1,78 @@
-# README
+### 顧客情報管理システム
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+呉服を想定した顧客情報管理アプリ
+顧客情報の登録、顧客情報の検索、顧客の寸法管理が出来る
 
-Things you may want to cover:
+## URL:
 
-* Ruby version
+## テスト要アカウント
 
-* System dependencies
+## 利用方法
 
-* Configuration
+## 目指した課題解決方法
 
-* Database creation
+## 洗い出した要件
 
-* Database initialization
+## 実装した機能についての説明
 
-* How to run the test suite
+## DB設計
+# usersテーブル
+|Column              |Type      |Options                    |
+|--------------------|----------|---------------------------|
+|first_name          |string    |null:false                 |
+|last_name           |string    |null:false                 |
+|first_name_katakana |string    |null:false                 |
+|last_name_katakana  |string    |null:false                 |
+|birthday            |date      |                           |
+|phone_number        |string    |                           |
+|telephone_number    |string    |                           |
+|address_number      |string    |null:false                 |
+|city                |string    |null:false                 |
+|address             |string    |null:false                 |
+|building            |string    |                           |
+|staff               |references|null:false,foreign_key:true|
+|detail              |text      |                           |
+|gender              |integer   |                           |
 
-* Services (job queues, cache servers, search engines, etc.)
+# staffテーブル
+|Column            |Type      |Options                 |
+|------------------|----------|------------------------|
+|name              |string    |null:false              |
+|encrypted_password|string    |null:false              |
 
-* Deployment instructions
+# sizeテーブル
+|Column         |Type      |Options                    |
+|---------------|----------|---------------------------|
+|height         |integer   |                           |
+|bust           |integer   |                           |
+|hip            |integer   |                           |
+|sleeve_length  |integer   |                           |
+|user           |references|null:false,foreign_key:true|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
 
-* ...
+## ローカルでの動作方法
