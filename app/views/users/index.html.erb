@@ -10,14 +10,15 @@
     </h2>
     <ul class='reason-lists'>
       <li class='list'>
-        <%= link_to '顧客登録','/'%>
+        <%= link_to '顧客登録',new_user_path, method: :get %>
       </li>
       <li class='list'>
-        <%= link_to 'リストアップ検索','/'%>    
+        <%= link_to 'リストアップ検索',search_users_path, method: :get %>    
       </li>
       <li class='list'>
         <%= link_to '寸法入力','/'%>
       </li>
     </ul>
+    
   </div>
 </div>

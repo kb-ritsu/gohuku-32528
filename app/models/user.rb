@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
   belongs_to :staff
   has_many :sizes
       extend ActiveHash::Associations::ActiveRecordExtensions
@@ -12,14 +10,17 @@ class User < ApplicationRecord
                 validates :first_name_katakana, format: {with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,message: "全角カタカナのみで入力して下さい"}
                 validates :last_name_katakana, format: {with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,message: "全角カタカナのみで入力して下さい"}
                 validates :birthday
-                validates :phone_number, format: {with: /\d{9,11}/}, length: {maximum: 11}
-                validates :telephone_number, format: {with: /\d{9,11}/}, length: {maximum: 11}
                 validates :address_number,format: { with: /\A\d{3}[-]\d{4}\z/ }
                 validates :city
                 validates :address
                 validates :staff_id
-                validates :detail
-                validates :gender,  numericality: { other_than: 0 }
+                validates :gender_id,  numericality: { other_than: 0 }
         end
-      
+        def self.search(search)
+          if search != ""
+            User.where('last_name_katakana LIKE(?)', "%#{search}%")
+          else
+            User.all
+          end
+        end
 end
