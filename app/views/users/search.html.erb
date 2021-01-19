@@ -1,10 +1,19 @@
+<h1>
+  商品検索
+</h1>
+<%= search_form_for @p, url: search_users_path do |f| %>
+  <%= f.label :staff_id_eq, '担当名' %>
+  <%= f.collection_select :staff_id_eq, @users, :staff_id, :staff_id,  include_blank: '指定なし' %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
+
+
 <%= form_with(url: search_users_path, local: true, method: :get, class: "search-form") do |form| %>
   <%= form.text_field :keyword, placeholder: "名前を検索する", class: "search-input" %>
   <%= form.submit "検索", class: "search-btn" %>
 <% end %>
-<h3>
-ユーザーを全て表示する
-</h3>
+
 <ul class='item-lists'>
    <li>
    苗字
@@ -17,6 +26,8 @@
    <li>
     <%= user.last_name %>
     <%= user.first_name %>
+    <%= user.phone_number %>
+    <%= user.telephone_number%>
     <%= user.address %>
     <%= user.city %>
     <%= user.address%>

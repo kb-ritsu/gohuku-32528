@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :search_product, only: [:index, :search]
 
   def index
     @users = User.all
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
 
   def search
     @users = User.search(params[:search])
+    @results = @p.result.includes(:staff)
   end
 
 
@@ -26,5 +28,9 @@ class UsersController < ApplicationController
 
   def  user_params 
     params.require(:user).permit(:first_name, :last_name, :first_name_katakana, :last_name_katakana,:birthday,:phone_number,:telephone_number,:address_number, :city,:building,:address,:staff,:detail,:gender_id,:staff_id)
+  end
+
+  def search_product
+    @p = User.ransack(params[:q])
   end
 end

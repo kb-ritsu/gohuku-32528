@@ -19,6 +19,9 @@ class User < ApplicationRecord
         def self.search(search)
           if search != ""
             User.where('last_name_katakana LIKE(?)', "%#{search}%")
+            User.where('first_name_katakana LIKE(?)', "%#{search}%")
+            User.where('phone_number LIKE(?)', "%#{search}%")
+            User.where('telephone_number LIKE(?)', "%#{search}%")
           else
             User.all
           end
