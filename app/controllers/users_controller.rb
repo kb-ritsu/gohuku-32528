@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   def search
     @users = User.search(params[:search])
     @results = @p.result.includes(:staff)
+    set_product_column
   end
 
 
@@ -32,5 +33,9 @@ class UsersController < ApplicationController
 
   def search_product
     @p = User.ransack(params[:q])
+  end
+
+  def set_product_column
+    @staff_id = User.select("staff_id").distinct
   end
 end

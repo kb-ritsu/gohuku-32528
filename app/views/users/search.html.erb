@@ -1,5 +1,6 @@
+<%= link_to 'トップページに戻る',"/",class:"main_title"%>
 <h1>
-  商品検索
+  担当別リストアップ検索
 </h1>
 <%= search_form_for @p, url: search_users_path do |f| %>
   <%= f.label :staff_id_eq, '担当名' %>
