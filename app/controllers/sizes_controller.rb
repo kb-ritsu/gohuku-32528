@@ -1,5 +1,5 @@
 class SizesController < ApplicationController
-
+  before_action :authenticate_staff!
 
   def new
     @size = Size.new

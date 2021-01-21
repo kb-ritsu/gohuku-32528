@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  # before_action :authenticate_staff!
   before_action :search_product, only: [:index, :search]
 
   def index
