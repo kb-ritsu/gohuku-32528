@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_16_022216) do
+ActiveRecord::Schema.define(version: 2021_01_19_091912) do
+
+  create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "height"
+    t.integer "bust"
+    t.integer "hip"
+    t.integer "sleeve_length"
+    t.integer "kimono_yuki"
+    t.bigint "user_id", null: false
+    t.integer "kimono_height"
+    t.integer "kimono_maehaba"
+    t.integer "kimono_usirohaba"
+    t.integer "kimono_kurikosi"
+    t.integer "kimono_katahaba"
+    t.integer "kimono_sodehaba"
+    t.integer "kimono_sodetuke"
+    t.integer "kimono_miyatu"
+    t.integer "kimono_okumihaba"
+    t.integer "kimono_aiduma"
+    t.integer "kimono_sodeguti"
+    t.integer "kimono_marumi"
+    t.integer "kimono_tumasita"
+    t.integer "kimono_erihaba"
+    t.integer "kimono_kataaki"
+    t.integer "kimono_erikata"
+    t.integer "kimono_detail"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_sizes_on_user_id"
+  end
 
   create_table "staffs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "encrypted_password", default: "", null: false
@@ -43,5 +72,6 @@ ActiveRecord::Schema.define(version: 2021_01_16_022216) do
     t.index ["staff_id"], name: "index_users_on_staff_id"
   end
 
+  add_foreign_key "sizes", "users"
   add_foreign_key "users", "staffs"
 end
