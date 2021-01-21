@@ -2,9 +2,9 @@
   <div class="items-sell-main">
     <h2 class="items-sell-title">お客様の寸法を入力</h2>
     <%= form_with model: @size, url: sizes_path, method: :post, local: true do |f| %>
-     <%# <%= render 'shared/error_messages', model: f.object %> %>
+     <%= render 'users/shared/error_messages', model: f.object %>
         <div class="user-sizes">
-         <h2>お客様の基本データ</h2>
+         <h3>お客様の基本データ</h3>
           <div class="personal_id">
            <div class="weight-bold-text">
              顧客ID
@@ -38,7 +38,7 @@
           </div>
         </div>
         <div class="kimono_size">
-         <h2>着物寸法</h2>
+         <h3>着物寸法</h3>
           <div class="form">
             <div class="weight-bold-text">
               身丈
