@@ -1,0 +1,32 @@
+.top-page-header{
+  color: #158b2b;
+  font-size: 20px;
+  padding: 10px 0;
+  text-align: center;
+  margin: 1.5em 0;
+}
+
+.top-page-header:before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 150px;
+  height: 58px;
+  border-radius: 50%;
+  border: 5px solid red;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.main{
+  margin: 0,50px;
+  background-color: silver;
+  text-align: center;
+}
+.list{
+  font-size: 50px;
+  color: aliceblue;
+}
