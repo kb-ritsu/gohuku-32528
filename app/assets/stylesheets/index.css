@@ -30,3 +30,17 @@
   font-size: 50px;
   color: aliceblue;
 }
+
+
+/* 顧客登録画面 */
+.form-wrap{ 
+  background-color: azure;
+  text-align: center;
+}
+.register-btn{
+  background-color: azure;
+  text-align: center;
+}
+.form-header-text{
+  font-size: 40px;
+}
