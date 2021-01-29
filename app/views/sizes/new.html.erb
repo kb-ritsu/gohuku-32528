@@ -1,10 +1,11 @@
-<div class="items-sell-contents">
-  <div class="items-sell-main">
-    <h2 class="items-sell-title">お客様の寸法を入力</h2>
+<div class="sizes-contents">
+  <div class="sizes-main">
+    <h2 class="size-title">寸法入力画面</h2>
     <%= form_with model: @size, url: sizes_path, method: :post, local: true do |f| %>
      <%= render 'users/shared/error_messages', model: f.object %>
         <div class="user-sizes">
-         <h3>お客様の基本データ</h3>
+         <div class="user-size-title">お客様の基本データ
+         </div>
           <div class="personal_id">
            <div class="weight-bold-text">
              顧客ID
@@ -38,7 +39,8 @@
           </div>
         </div>
         <div class="kimono_size">
-         <h3>着物寸法</h3>
+         <div class="kimono-size">着物寸法
+         </div>
           <div class="form">
             <div class="weight-bold-text">
               身丈
