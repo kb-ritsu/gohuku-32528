@@ -1,38 +1,32 @@
-<%= link_to 'トップページに戻る',"/",class:"main_title"%>
-<h1>
-  担当別リストアップ検索
-</h1>
-<%= search_form_for @p, url: search_users_path do |f| %>
-  <%= f.label :staff_id_eq, '担当名' %>
-  <%= f.collection_select :staff_id_eq, @users, :staff_id, :staff_id,  include_blank: '指定なし' %>
-  <br>
-  <%= f.submit '検索' %>
-<% end %>
-
-
-<%= form_with(url: search_users_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "名前を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
-
-<ul class='item-lists'>
-   <li>
-   苗字
-   名前
-   住所
-   市町村区
-   担当
-   </li>
-  <% @users.each do |user| %>
-   <li>
-    <%= user.last_name %>
-    <%= user.first_name %>
-    <%= user.phone_number %>
-    <%= user.telephone_number%>
-    <%= user.address %>
-    <%= user.city %>
-    <%= user.address%>
-    <%= user.staff[:name] %>
-   </li>
+<div class="search-page" >
+  <%= link_to 'トップページに戻る',"/",class:"main_title"%>
+  <h1>
+    担当別リストアップ検索
+  </h1>
+  <%= search_form_for @p, url: search_users_path do |f| %>
+    <%= f.label :staff_id_eq, '担当名' %>
+    <%= f.collection_select :staff_id_eq, @users, :staff_id, :staff_id,  include_blank: '指定なし' %>
+    <%= f.submit '検索' %>
   <% end %>
-</ul>
+
+
+  <%= form_with(url: search_users_path, local: true, method: :get, class: "search-form") do |form| %>
+    <%= form.text_field :keyword, placeholder: "名前を検索する", class: "search-input" %>
+    <%= form.submit "検索", class: "search-btn" %>
+  <% end %>
+
+  <ul class='item-lists'>
+    <% @users.each do |user| %>
+    <li>
+      <%= user.last_name %>
+      <%= user.first_name %>
+      <%= user.phone_number %>
+      <%= user.telephone_number%>
+      <%= user.address %>
+      <%= user.city %>
+      <%= user.address%>
+      <%= user.staff[:name] %>
+    </li>
+    <% end %>
+  </ul>
+</div>
