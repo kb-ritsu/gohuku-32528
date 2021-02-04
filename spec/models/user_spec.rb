@@ -5,14 +5,11 @@ RSpec.describe User, type: :model do
     before do
       @user = FactoryBot.build(:user)
     end
-    it "全ての情報を入力すると登録できる" do
-      expect(@user).to be_valid
-    end
 
     it "staff_idが空では登録できないこと" do
       @user.staff_id = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("Staff id can't be blank")
+      expect(@user.errors.full_messages).to include("Staff can't be blank")
     end
 
     it "address_numberが空では登録できないこと" do
@@ -66,13 +63,13 @@ RSpec.describe User, type: :model do
     it "gender_idが空では登録できないこと" do
       @user.gender_id = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("Gender id can't be blank")
+      expect(@user.errors.full_messages).to include("Gender can't be blank")
     end
 
     it "address_numberが000-0000の形でなければ登録できない" do
       @user.address_number = "00000"
       @user.valid?
-      expect(@user.errors.full_messages).to include("Address number to be valid")
+      expect(@user.errors.full_messages).to include("Address number is invalid")
     end
 
     it 'ユーザー本名は全角での入力が必須である' do
@@ -95,6 +92,8 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Last name katakana 全角カタカナのみで入力して下さい")
     end
-    
+    it "全ての情報を入力すると登録できる" do
+      expect(@user).to be_valid
+    end
   end
 end
