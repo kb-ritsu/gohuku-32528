@@ -13,7 +13,7 @@ class User < ApplicationRecord
                 validates :address_number,format: { with: /\A\d{3}[-]\d{4}\z/ }
                 validates :city
                 validates :address
-                validates :staff_id
+                validates :staff_id,  numericality: { other_than: 0 }
                 validates :gender_id,  numericality: { other_than: 0 }
         end
         def self.search(search)
