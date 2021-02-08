@@ -1,19 +1,20 @@
-<h2>Log in</h2>
+<h2>ログイン</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_with model:@staff,url: staff_session_path, method: :post,class: 'registration-main', local: true do |f| %>
  <%= render 'users/shared/error_messages', model: f.object %>
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
   <div class="field">
-    <%= f.label :スタッフid %><br />
-    <%= f.password_field :id, autocomplete: "スタッフID" %>
+    <%= f.label :name %><br />
+    <%= f.password_field :name, autocomplete: "社員名" %>
   </div>
 
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン" %>
   </div>
 <% end %>
 
+<%# エラー発生正しい情報を入力しても見つからなかったと出てくる %>
